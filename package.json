@@ -1,0 +1,23 @@
+{
+  "name": "e-keys-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot for e-keys",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node -r dotenv/config index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreysuha2/e-keys-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andreysuha2/e-keys-bot/issues"
+  },
+  "homepage": "https://github.com/andreysuha2/e-keys-bot#readme",
+  "devDependencies": {
+    "dotenv": "^8.2.0"
+  }
+}
