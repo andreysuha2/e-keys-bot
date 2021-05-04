@@ -16,6 +16,10 @@ class ApiHttp {
         });
     }
 
+    static req() {
+        return axios;
+    }
+
     group(groupPath, callback) {
         const __this = this,
             // eslint-disable-next-line no-confusing-arrow

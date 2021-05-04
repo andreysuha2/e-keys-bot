@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "set-alises": "link-module-alias",
-    "start": "npm run set-alises && node -r dotenv/config index.js"
+    "start": "npm run set-alises && node --experimental-specifier-resolution=node -r dotenv/config index.js",
+    "create-user": "npm run set-alises && node --experimental-specifier-resolution=node -r dotenv/config userCreation.js"
   },
   "repository": {
     "type": "git",
@@ -24,10 +25,28 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "telegraf": "^4.3.0"
+    "concat-stream": "^2.0.0",
+    "import-modules": "^2.1.0",
+    "md5": "^2.3.0",
+    "mongoose": "^5.12.7",
+    "prompt": "^1.1.0",
+    "querystring": "^0.2.1",
+    "telegraf": "^4.3.0",
+    "telegram-keyboard": "^2.2.6"
   },
   "_moduleAliases": {
-    "app-http": "src/libs/http/index.js",
-    "root": "src"
+    "core": "core",
+    "core-db": "core/db",
+    "core-controller": "core/controllers",
+    "core-controllers": "core/controllers/controllersRegister.js",
+    "core-router": "core/server/router.js",
+    "core-http": "core/http",
+    "root": "src",
+    "root-routes": "src/routes",
+    "root-controllers": "src/controllers",
+    "root-libs": "src/libs",
+    "root-bootstrap": "src/bootstrap/export.js",
+    "root-resources": "src/resources",
+    "root-models": "src/models"
   }
 }

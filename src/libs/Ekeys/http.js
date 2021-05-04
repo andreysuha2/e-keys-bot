@@ -1,8 +1,11 @@
-import Http from "app-http";
+import Http from "core-http";
 
 export default class EkeysHttp extends Http {
-    constructor(host, namespace) {
-        super({ baseUrl: `${host}/${namespace}` });
+    constructor(host, namespace, auth) {
+        super({
+            baseUrl: `${host}/${namespace}`,
+            headers: { "Authorization": auth }
+        });
     }
 
     get sync() {

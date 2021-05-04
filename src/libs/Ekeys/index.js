@@ -1,8 +1,9 @@
 import Http from "./http.js";
 
 class Ekeys {
-    constructor(host, namespace) {
-        Object.defineProperties(this, { http: { value: new Http(host, namespace) } });
+    constructor(host, namespace, username, password) {
+        const auth = `Basic ${Buffer.from(username + ":" + password).toString('base64')}`;
+        Object.defineProperties(this, { http: { value: new Http(host, namespace, auth) } });
     }
 
     getSync() {
