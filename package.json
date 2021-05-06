@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "set-alises": "link-module-alias",
+    "sync": "node -r dotenv/config cron.js",
     "start": "npm run set-alises && node --experimental-specifier-resolution=node -r dotenv/config index.js",
     "create-user": "npm run set-alises && node --experimental-specifier-resolution=node -r dotenv/config userCreation.js"
   },
