@@ -9,9 +9,26 @@ export default [
     },
     {
         url: "/sync",
-        method: "post",
-        controller: controllers.Sync,
-        handler: "onSync"
+        children: [
+            {
+                url: "/stored",
+                method: "post",
+                controller: controllers.Sync,
+                handler: "syncStored"
+            },
+            {
+                url: "",
+                method: "post",
+                controller: controllers.Sync,
+                handler: "onSync"
+            },
+            {
+                url: "",
+                method: "get",
+                controller: controllers.Sync,
+                handler: "syncLog"
+            }
+        ]
     },
     {
         url: "/subscribers",

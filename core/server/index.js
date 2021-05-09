@@ -8,7 +8,6 @@ class Server {
         const server = http.createServer(async (req, res) => {
             const auth = new Auth(req),
                 isAuth = await auth.success();
-            console.log(isAuth);
             if(!isAuth) {
                 res.writeHead(401);
                 res.end();
