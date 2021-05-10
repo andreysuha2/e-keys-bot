@@ -1,12 +1,9 @@
 import { ekeys } from "root-bootstrap";
 import postResource from "root-resources/post";
-import SyncLog from "root-models/SyncLog";
 
 class SyncController {
     syncStart(ctx) {
         ekeys.updateSync().then(async result => {
-            const log = new SyncLog(result);
-            await log.save();
             const message = postResource.update(result);
             await ctx.reply(message.title);
             ctx.reply(message.content);

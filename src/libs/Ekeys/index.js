@@ -1,4 +1,5 @@
 import Http from "./http.js";
+import SyncLog from "root-models/SyncLog";
 
 class Ekeys {
     constructor(host, namespace, username, password) {
@@ -22,8 +23,13 @@ class Ekeys {
                 return;
             }
             const query = this.http.sync[type];
-            query().then(({ data }) => resolve(that._mappedSyncData(data)))
-                .catch((e) => reject(e));
+            query().then(async ({ data }) => {
+                if(type === "update") {
+                    const log = new SyncLog(data);
+                    await log.save();
+                }
+                resolve(that._mappedSyncData(data))
+            }).catch((e) => reject(e));
         });
     }
 
